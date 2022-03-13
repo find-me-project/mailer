@@ -5,14 +5,10 @@ type EmailData = {
   activationCode: string,
 }
 
-export default function verificationEmailTemplate (data: EmailData, bla: any): string {
+export default function verificationEmailTemplate (data: EmailData): string {
   return (`
     <span>
       ${data.activationCode}
-
-      <span>
-        ${bla}
-      </span>
     </span>
   `);
 }

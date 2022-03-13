@@ -15,10 +15,10 @@ const serverlessConfiguration: AWS = {
       packager: 'yarn',
     },
   },
-  // package: {
-  //   individually: true,
-  //   exclude: ['**/*'],
-  // },
+  package: {
+    individually: true,
+    // exclude: ['**/*'],
+  },
   plugins: ['serverless-webpack', 'serverless-offline', 'serverless-dotenv-plugin'],
   provider: {
     name: process.env.PROJECT_AWS_PROVIDER as any,

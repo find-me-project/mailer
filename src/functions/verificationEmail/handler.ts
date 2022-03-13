@@ -6,14 +6,14 @@ const EMAIL_TITLE = 'Verificação de e-mail';
 const EMAIL_SUBJECT = 'Confirmação de e-mail';
 
 export const verificationEmail: Handler = async (event, _context, callback) => {
-  const data = event.body;
+  const { nickname, email, code } = JSON.parse(event.Records[0].Sns.Message);
 
-  await sendEmail('', EMAIL_SUBJECT, verificationEmailTemplate({
-    email: '',
-    activationCode: '',
-    nickname: '',
+  await sendEmail(email, EMAIL_SUBJECT, verificationEmailTemplate({
+    email: email,
+    activationCode: code,
+    nickname: nickname,
     title: EMAIL_TITLE,
-  }, data));
+  }));
 
   callback(null, {
     statusCode: 200,
