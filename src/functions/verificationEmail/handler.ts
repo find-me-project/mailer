@@ -10,7 +10,7 @@ export const verificationEmail: Handler = async (event, _context, callback) => {
 
   await sendEmail(email, EMAIL_SUBJECT, verificationEmailTemplate({
     email: email,
-    activationCode: code,
+    code: code,
     nickname: nickname,
     title: EMAIL_TITLE,
   }));
