@@ -27,6 +27,15 @@ const serverlessConfiguration: AWS = {
     stage: process.env.PROJECT_STAGE,
     runtime: 'nodejs14.x',
     memorySize: 512,
+    iamRoleStatements: [
+      {
+        Effect: 'Allow',
+        Action: [
+          'ses:SendEmail',
+        ],
+        Resource: ['*'],
+      },
+    ],
   },
   functions: functions,
 };
